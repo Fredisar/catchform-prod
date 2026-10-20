@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Mon compte — CatchForm{% endblock %}
+{% block content %}
+<div class="page">
+  <div class="container" style="max-width:720px">
+    <h1>Mon compte</h1>
+    <p class="muted">{{ current_user.email }} · Plan <b>{{ current_user.plan }}</b> · créé le {{ current_user.created_at.strftime('%d/%m/%Y') }}</p>
+
+    <div class="panel">
+      <h2>Changer d’e-mail</h2>
+      <form method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="action" value="update_email">
+        <div class="field">
+          <label for="email">Nouvelle adresse</label>
+          <input type="email" id="email" name="email" value="{{ current_user.email }}" required>
+        </div>
+        <button class="btn btn-primary btn-sm">Mettre à jour l’e-mail</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Changer de mot de passe</h2>
+      <form method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="action" value="update_password">
+        <div class="field"><label>Mot de passe actuel <input type="password" name="current_password" required></label></div>
+        <div class="field"><label>Nouveau mot de passe (≥8 car.) <input type="password" name="new_password" required></label></div>
+        <button class="btn btn-primary btn-sm">Mettre à jour</button>
+      </form>
+    </div>
+
+    <div class="panel" style="border-color:#fecaca; background:#fef2f2">
+      <h2 style="color:#dc2626">Zone dangereuse — Supprimer mon compte (RGPD)</h2>
+      <p class="muted">Supprime ton compte et <b>toutes</b> tes données (formulaires + soumissions). Irréversible.</p>
+      <form method="POST" onsubmit="return confirm('Supprimer définitivement ton compte et toutes tes données ?');">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="action" value="delete_account">
+        <label class="check"><input type="checkbox" name="confirm_delete"> Je confirme vouloir supprimer mon compte</label>
+        <div class="field"><label>Mot de passe pour confirmer <input type="password" name="delete_password" required></label></div>
+        <button class="btn btn-danger btn-sm">Supprimer mon compte</button>
+      </form>
+    </div>
+
+    <p><a href="{{ url_for('dashboard.index') }}">← Retour au tableau de bord</a></p>
+  </div>
+</div>
+{% endblock %}

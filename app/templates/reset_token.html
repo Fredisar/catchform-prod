@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Nouveau mot de passe — CatchForm{% endblock %}
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>Nouveau mot de passe</h1>
+    <form method="POST">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="field"><label>Nouveau mot de passe (≥8 car.) <input type="password" name="password" required></label></div>
+      <button class="btn btn-primary" style="width:100%">Réinitialiser</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

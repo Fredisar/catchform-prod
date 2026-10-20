@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Mot de passe oublié — CatchForm{% endblock %}
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>Mot de passe oublié ?</h1>
+    <p class="muted">Entre ton e-mail, nous t’enverrons un lien de réinitialisation (valable 1h).</p>
+    <form method="POST">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="field"><label>E-mail <input type="email" name="email" required></label></div>
+      <button class="btn btn-primary" style="width:100%">Envoyer le lien</button>
+    </form>
+    <p class="muted" style="margin-top:14px"><a href="{{ url_for('auth.login') }}">← Retour à la connexion</a></p>
+  </div>
+</div>
+{% endblock %}

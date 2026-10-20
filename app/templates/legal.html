@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Mentions légales — CatchForm{% endblock %}
+{% block content %}
+<div class="page"><div class="container" style="max-width:760px">
+<h1>Mentions légales</h1>
+<p class="muted">En vigueur au 20 octobre 2026 — à compléter avec tes informations avant le lancement public.</p>
+
+<h2>1. Éditeur</h2>
+<p>CatchForm est édité par :<br>
+<strong>[Nom / Raison sociale]</strong><br>
+[Statut : micro-entreprise / SAS / ... — SIRET : ...]<br>
+Adresse : [rue, CP, ville]<br>
+E-mail : <a href="mailto:{{ config.CONTACT_EMAIL }}">{{ config.CONTACT_EMAIL }}</a><br>
+Directeur de publication : [Nom]</p>
+
+<h2>2. Hébergement</h2>
+<p>Application & base de données : <strong>Render</strong> (Render Services Inc., USA), région <strong>Francfort (Allemagne, UE)</strong> — données hébergées dans l’UE.<br>
+Site : <a href="https://render.com" target="_blank">render.com</a><br>
+E-mails transactionnels : <strong>Resend</strong> (Resend Inc.) — voir <a href="{{ url_for('public.privacy') }}">politique de confidentialité</a>.</p>
+
+<h2>3. Propriété intellectuelle</h2>
+<p>Le code, le design et la marque CatchForm sont la propriété de l’éditeur. Toute reproduction sans autorisation est interdite.</p>
+
+<h2>4. Contact</h2>
+<p>Pour toute question : <a href="mailto:{{ config.CONTACT_EMAIL }}">{{ config.CONTACT_EMAIL }}</a></p>
+<p class="muted" style="margin-top:24px; font-size:0.85em">Modèle fourni à titre indicatif — fais valider par un professionnel avant le lancement commercial.</p>
+</div></div>
+{% endblock %}

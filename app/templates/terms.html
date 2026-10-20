@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}CGU — CatchForm{% endblock %}
+{% block content %}
+<div class="page"><div class="container" style="max-width:760px">
+<h1>Conditions générales d’utilisation</h1>
+<p class="muted">Dernière mise à jour : 20 octobre 2026</p>
+
+<h2>1. Objet</h2>
+<p>CatchForm fournit un endpoint <code>/f/&lt;id&gt;</code> pour recevoir les soumissions de formulaires HTML statiques, avec stockage, anti-spam honeypot, notifications e-mail et tableau de bord.</p>
+
+<h2>2. Offres</h2>
+<p><b>Gratuit :</b> 100 soumissions/mois tous formulaires confondus, mention “Propulsé par CatchForm” sur la page Merci. <b>Pro (9 €/mois)</b> : illimité, sans mention, support prioritaire. Quota configurable via <code>FREE_PLAN_MONTHLY_LIMIT</code>. Paiement Stripe à venir (pour l’instant : contact via {{ config.CONTACT_EMAIL }} → commande <code>set-plan</code>).</p>
+
+<h2>3. Compte</h2>
+<p>Inscription par e-mail/mot de passe (≥8 car.), session 30 j. Tu es responsable de la confidentialité de ton mot de passe. Réinitialisation par e-mail (lien 1h). Suppression du compte possible à tout moment depuis “Mon compte”.</p>
+
+<h2>4. Usage autorisé</h2>
+<p>Interdit : spam, phishing, contenu illicite, contournement des quotas, surcharge abusive (rate limiting 30/min sur /f/&lt;id&gt;, 10/min sur login/register). Nous pouvons suspendre un compte en cas d’abus.</p>
+
+<h2>5. DPA (sous-traitance RGPD art.28)</h2>
+<p>En utilisant CatchForm tu nous confies les données de tes visiteurs. Nous agissons uniquement sur tes instructions, hébergeons à Francfort (UE), tenons un registre, t’informons des violations, et supprimons les données à la fin du contrat (suppression compte/formulaire). Durée de conservation IP : jusqu’à suppression manuelle ou compte — à préciser selon ton usage.</p>
+
+<h2>6. Disponibilité & support</h2>
+<p>Objectif 99,5 % hors veille Free (service s’endort après 15 min idle — ~1 min de réveil). Base Free expire J+30 → passer en payant dès 1er client (sauvegardes incluses). Support standard (Gratuit) / prioritaire (Pro).</p>
+
+<h2>7. Limitation</h2>
+<p>Service fourni “en l’état”. Nous ne sommes pas responsables du contenu des soumissions ni de l’indisponibilité due aux hébergeurs (Render/Resend).</p>
+
+<h2>8. Droit applicable</h2>
+<p>Droit français. Litiges : recherche amiable, puis tribunaux de [ville].</p>
+
+<p class="muted" style="margin-top:24px; font-size:0.85em">Modèle à faire valider — fais relire par un professionnel avant lancement.</p>
+</div></div>
+{% endblock %}

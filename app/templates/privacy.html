@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Confidentialité — CatchForm{% endblock %}
+{% block content %}
+<div class="page"><div class="container" style="max-width:760px">
+<h1>Politique de confidentialité</h1>
+<p class="muted">Dernière mise à jour : 20 octobre 2026 — CatchForm est conforme RGPD (région Francfort, sous-traitance art.28).</p>
+
+<h2>1. Qui sommes-nous ?</h2>
+<p>CatchForm (éditeur : [Nom], contact : {{ config.CONTACT_EMAIL }}) fournit un backend de formulaires pour sites statiques. Données hébergées à Francfort (UE) chez Render.</p>
+
+<h2>2. Données collectées</h2>
+<ul>
+<li><b>Comptes clients</b> : e-mail, mot de passe haché, plan, date d’inscription.</li>
+<li><b>Soumissions</b> : champs envoyés par les visiteurs finaux, IP ({{ config.MAX_CONTENT_LENGTH // 1024 }} Ko max/requête), horodatage UTC.</li>
+<li><b>Navigation</b> : cookies de session (HttpOnly, SameSite=Lax, Secure en prod), aucune pub, aucun tracker tiers (Google Fonts supprimées).</li>
+</ul>
+
+<h2>3. Finalités & base légale</h2>
+<p>Exécution du contrat (réception/transmission des formulaires), intérêt légitime (anti-spam, sécurité), consentement (cookies). Durée : tant que le compte est actif ; suppression sur demande (droit à l’effacement → “Mon compte → Supprimer”, suppression cascade).</p>
+
+<h2>4. Sous-traitants</h2>
+<ul>
+<li><b>Render</b> (hébergement, Francfort) — <a href="https://render.com/privacy" target="_blank">privacy</a></li>
+<li><b>Resend</b> (e-mails, si activé) — <a href="https://resend.com/legal/privacy-policy" target="_blank">privacy</a></li>
+</ul>
+
+<h2>5. Tes droits RGPD</h2>
+<p>Accès, rectification, effacement, portabilité (export CSV), opposition. Exerce-les via <a href="mailto:{{ config.CONTACT_EMAIL }}">{{ config.CONTACT_EMAIL }}</a> ou directement dans l’app (Mon compte → suppression). Réponse sous 1 mois. Réclamation : CNIL.</p>
+
+<h2>6. Droits des visiteurs finaux</h2>
+<p>Les personnes qui remplissent tes formulaires t’ont confié leurs données. Tu es <b>responsable de traitement</b>, CatchForm est <b>sous-traitant</b> (art.28). Informe tes visiteurs, ne collecte que le nécessaire, et honore leurs demandes — tu peux exporter/supprimer leurs soumissions depuis ton tableau de bord.</p>
+
+<h2>7. Sécurité</h2>
+<p>Mots de passe hachés, CSRF, cookies Secure, isolation inter-comptes, limitation 100 Ko, rate limiting, headers CSP/HSTS, ProxyFix HTTPS. Headers détaillés dans le code.</p>
+
+<h2>8. Cookies</h2>
+<p>Uniquement le cookie de session Flask (30 j si “se souvenir”). Pas de cookie analytics/pub.</p>
+
+<p class="muted" style="margin-top:24px; font-size:0.85em">Modèle à faire valider par un juriste avant production.</p>
+</div></div>
+{% endblock %}
