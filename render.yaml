@@ -7,7 +7,7 @@ services:
     plan: free
     region: frankfurt # données hébergées dans l'UE (RGPD)
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn wsgi:app --workers 1 --threads 8 --timeout 60
+    startCommand: flask db upgrade && gunicorn wsgi:app --workers 1 --threads 8 --timeout 60
     preDeployCommand: flask db upgrade
     healthCheckPath: /healthz
     envVars:
